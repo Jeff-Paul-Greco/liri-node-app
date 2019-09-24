@@ -1,12 +1,11 @@
 require("dotenv").config();
-require("moment")
+var moment = require("moment")
 var axios = require("axios");
-var inquirer = require("inquirer");
 var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
 
 var omdbKey = process.env.OMDB_KEY;
-
+var bandsKey = process.env.BANDS_KEY;
 
 var spotify = new Spotify(keys.spotify);
 
@@ -66,6 +65,7 @@ if (process.argv[2] === "movie-this" && process.argv[3] !== undefined) {
         }
     );
 
+    //Default return if no search query is entered after spotify-this-song 
 } else if (process.argv[2] === "movie-this" && process.argv[3] === undefined) {
     axios.get("http://www.omdbapi.com/?t=mr+nobody&y=&plot=short&apikey=" + omdbKey).then(
         function (response) {
@@ -83,3 +83,28 @@ if (process.argv[2] === "movie-this" && process.argv[3] !== undefined) {
         }
     );
 }
+
+
+
+
+
+
+
+//concert-this Bandsintown API call
+if (process.argv[2] === "concert-this" && process.argv[3] !== undefined) {
+
+    var search = process.argv[3];
+
+    axios.get("https://rest.bandsintown.com/artists/" + search + "/events?app_id=" + bandsKey).then(
+        function (response) {
+
+            for (i=0; i < 5; i++) {
+            console.log("===========================================");
+            console.log("Venue: " + response.data[i].venue.name);
+            console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.region + ", " + response.data[i].venue.country);
+            console.log("Date: " + moment(response.data[i].datetime).format("MM/DD/YYYY"));
+            console.log("===========================================");
+            }
+        }
+    );
+    }
