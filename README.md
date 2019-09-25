@@ -8,13 +8,13 @@ There are three different types of searches the app can perform:
 
 1.Spotify
 
-By typing "node liri spotify-this-song your-song-title-here" (without quotes, example - node liri spotify-this-song despacito) into the command line, the app will trigger a call to Spotify and return the song's title, artist, album and a link to the song. This info is then displayed on the screen. If no search term is entered after "spotify-this-song", then the default search - "The Sign by Ace of Base" - will be returned.
+By typing "node liri spotify-this-song your-song-title-here" (without quotes, example - node liri spotify-this-song despacito) into the command line, the app will trigger a call to Spotify and return the song's title, artist, album and a link to the song. This info is then passed to a function that displays it on the screen. If no search term is entered after "spotify-this-song", then the default search - "The Sign by Ace of Base" - will be returned.
 
 Demonstration: https://share.getcloudapp.com/YEu875pO
 
 2.OMDB
 
-By typing "node liri movie-this your-movie-search-here" (without quotes, example - node liri movie-this titanic) into the command line, the app will trigger a call to OMDB (Online Movie Database) and return the movies's title, year of release, IMDB rating, Rotten Tomatoes rating, country, languages, plot and actors. This info is then displayed on the screen. If no search term is entered after "movie-this", then the default search - "Mr.Nobody" - will be returned.
+By typing "node liri movie-this your-movie-search-here" (without quotes, example - node liri movie-this titanic) into the command line, the app will trigger a call to OMDB (Online Movie Database) and return the movies's title, year of release, IMDB rating, Rotten Tomatoes rating, country, languages, plot and actors. This info is then passed to a function that displays it on the screen. If no search term is entered after "movie-this", then the default search - "Mr.Nobody" - will be returned.
 
 Demonstration: https://share.getcloudapp.com/L1uz0LL6
 
